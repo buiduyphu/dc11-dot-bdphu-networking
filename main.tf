@@ -9,7 +9,7 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-southeast-1"
+  region  = "ap-southeast-2"
 }
 
 resource "aws_vpc" "networking-VPC" {
@@ -18,6 +18,10 @@ resource "aws_vpc" "networking-VPC" {
  tags = {
    Name = "dc11-networking-VPC"
  }
+}
+
+module "networking-VPC" {
+  source = "../terraform-project"
 }
 
 resource "aws_subnet" "public_subnets" {
