@@ -20,10 +20,6 @@ resource "aws_vpc" "networking-VPC" {
  }
 }
 
-module "networking-VPC" {
-  source = "../terraform-project"
-}
-
 resource "aws_subnet" "public_subnets" {
  count      = length(var.public_subnet_cidrs)
  vpc_id     = aws_vpc.networking-VPC.id
